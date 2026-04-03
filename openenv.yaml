@@ -1,0 +1,21 @@
+name: restaurant-optimization
+version: 1.0.0
+tags: [openenv]
+description: "A restaurant management OpenEnv simulating Andhra/Telangana cuisine operations. Train agents to minimize wait times, reduce food waste, and maximize revenue via staffing, menu promotions, and inventory restocking."
+tasks:
+  task_1:
+    description: "Task 1 (Easy): Staff Scheduling Optimization. Deploy the right number of staff each hour to handle customer queue."
+    observation_model: "models.py:Task1Observation"
+    action_model: "models.py:Task1Action"
+    reward_model: "models.py:Task1Reward"
+  task_2:
+    description: "Task 2 (Medium): Menu and Inventory Optimization. Promote dishes and manage restocking to maximize revenue and minimize waste."
+    observation_model: "models.py:Task2Observation"
+    action_model: "models.py:Task2Action"
+    reward_model: "models.py:Task2Reward"
+  task_3:
+    description: "Task 3 (Hard): End-to-End Restaurant Optimization. Simultaneously manage staffing, promotions, and inventory to maximize satisfaction, revenue, and minimize waste."
+    observation_model: "models.py:Task3Observation"
+    action_model: "models.py:Task3Action"
+    reward_model: "models.py:Task3Reward"
+entrypoint: "environment.py:RestaurantEnv"
