@@ -6,15 +6,16 @@ from openai import OpenAI
 from environment import RestaurantEnv
 from models import Task1Action, Task2Action, Task3Action
 
+# ── Exactly as required by the checklist ──────────────────────────
 API_BASE_URL    = os.getenv("API_BASE_URL", "https://router.huggingface.co/v1")
 MODEL_NAME      = os.getenv("MODEL_NAME", "Qwen/Qwen2.5-72B-Instruct")
-HF_TOKEN        = os.getenv("HF_TOKEN")         
-LOCAL_IMAGE_NAME = os.getenv("LOCAL_IMAGE_NAME") 
-
+HF_TOKEN        = os.getenv("HF_TOKEN")          # NO default — required by checklist
+LOCAL_IMAGE_NAME = os.getenv("LOCAL_IMAGE_NAME")  # optional
+# ──────────────────────────────────────────────────────────────────
 
 TASK_NAME  = os.getenv("OPENENV_TASK", "task_1")
 BENCHMARK  = os.getenv("OPENENV_BENCHMARK", "restaurant_opt")
-MAX_STEPS  = 91       
+MAX_STEPS  = 91        # 7 days × 13 hours = full episode
 TEMPERATURE = 0.3
 MAX_TOKENS  = 300
 
@@ -43,7 +44,7 @@ SYSTEM_PROMPTS = {
 }
 
 
-
+# ── Log functions — exact START/STEP/END format ───────────────────
 def log_start(task: str, env: str, model: str) -> None:
     print(f"[START] task={task} env={env} model={model}", flush=True)
 
@@ -57,13 +58,13 @@ def log_step(step: int, action: str, reward: float, done: bool, error: Optional[
     )
 
 
-def log_end(success: bool, steps: int, score: float, rewards: List[float]) -> None:
+def log_end(success: bool, steps: int, rewards: List[float]) -> None:
     rewards_str = ",".join(f"{r:.2f}" for r in rewards)
     print(
-        f"[END] success={str(success).lower()} steps={steps} score={score:.3f} rewards={rewards_str}",
+        f"[END] success={str(success).lower()} steps={steps} rewards={rewards_str}",
         flush=True,
     )
-
+# ──────────────────────────────────────────────────────────────────
 
 
 def parse_action(task_name: str, text: str):
@@ -118,9 +119,9 @@ def build_user_prompt(step: int, obs: Any, history: List[str], task_name: str) -
 
 
 def run_inference():
-
+    # ── OpenAI client using the required variables ─────────────────
     client = OpenAI(api_key=HF_TOKEN, base_url=API_BASE_URL)
-  
+    # ──────────────────────────────────────────────────────────────
 
     env = RestaurantEnv(task_name=TASK_NAME)
     system_prompt = SYSTEM_PROMPTS.get(TASK_NAME, SYSTEM_PROMPTS["task_3"])
@@ -162,7 +163,7 @@ def run_inference():
         r_val = reward_obj.score
         rewards_list.append(r_val)
 
- 
+        # Clean action string for log — no quotes that break parsing
         action_str = json.dumps(action.model_dump(), separators=(',', ':'))
         log_step(step, action_str, r_val, done, parse_error)
 
@@ -170,7 +171,7 @@ def run_inference():
 
     final_score = sum(rewards_list) / len(rewards_list) if rewards_list else 0.0
     success = final_score > 0.5
-    log_end(success, step, final_score, rewards_list)
+    log_end(success, step, rewards_list)
 
 
 if __name__ == "__main__":
