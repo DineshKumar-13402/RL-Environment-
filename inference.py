@@ -64,7 +64,7 @@ def log_end(success: bool, steps: int, rewards: List[float]) -> None:
         f"[END] success={str(success).lower()} steps={steps} rewards={rewards_str}",
         flush=True,
     )
-log_end(success, step, rewards_list) 
+
 # ──────────────────────────────────────────────────────────────────
 
 
