@@ -1,7 +1,13 @@
+import sys
+import os
 from fastapi import FastAPI, Query
 from fastapi.responses import JSONResponse
 from contextlib import asynccontextmanager
 import uvicorn
+
+# Ensure the parent directory is in sys.path for local module imports
+sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+
 from environment import RestaurantEnv
 from models import Task1Action, Task2Action, Task3Action
 
@@ -49,5 +55,8 @@ def step_env(action: dict, task: str = Query(default="task_3")):
     except Exception as e:
         return JSONResponse(status_code=422, content={"error": str(e)})
 
+def main():
+    uvicorn.run("server.app:app", host="0.0.0.0", port=7860)
+
 if __name__ == "__main__":
-    uvicorn.run("app:app", host="0.0.0.0", port=7860)
+    main()
