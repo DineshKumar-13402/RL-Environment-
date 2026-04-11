@@ -1,6 +1,15 @@
 from typing import Dict, Any, Tuple
-from adapter import OpenEnvAdapter as RestaurantSimulator
-from models import (
+try:
+    from server.adapter import OpenEnvAdapter as RestaurantSimulator
+    from server.models import (
+    Task1Observation, Task1Action, Task1Reward,
+    Task2Observation, Task2Action, Task2Reward,
+    Task3Observation, Task3Action, Task3Reward
+)
+
+except ImportError:
+    from adapter import OpenEnvAdapter as RestaurantSimulator
+    from models import (
     Task1Observation, Task1Action, Task1Reward,
     Task2Observation, Task2Action, Task2Reward,
     Task3Observation, Task3Action, Task3Reward

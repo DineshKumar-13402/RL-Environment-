@@ -6,7 +6,7 @@ from contextlib import asynccontextmanager
 import uvicorn
 try:
     from server.environment import RestaurantEnv
-    from models import Task1Action, Task2Action, Task3Action
+    from server.models import Task1Action, Task2Action, Task3Action
 except ImportError:
     from environment import RestaurantEnv
     from models import Task1Action, Task2Action, Task3Action

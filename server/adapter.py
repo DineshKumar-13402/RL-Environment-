@@ -2,7 +2,10 @@ import random
 from datetime import datetime, timedelta
 from typing import Dict, Any
 
-from restaurant_simulator import RestaurantSimulator, MENU, BASE_INVENTORY
+try:
+    from server.restaurant_simulator import RestaurantSimulator, MENU, BASE_INVENTORY
+except ImportError:
+    from restaurant_simulator import RestaurantSimulator, MENU, BASE_INVENTORY
 
 class OpenEnvAdapter:
     def __init__(self):
