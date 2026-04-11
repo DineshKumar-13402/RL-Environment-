@@ -1,0 +1,19 @@
+[project]
+name = "restaurant-opt"
+version = "0.1.0"
+description = "Restaurant Optimization RL Environment"
+authors = [{name = "Dinesh Kumar Dasari", email = "dineshkumardasara@gmail.com"}]
+dependencies = [
+    "openenv-core",
+    "pydantic",
+    "openai",
+    "pandas",
+    "numpy",
+]
+
+[project.scripts]
+server = "app:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"

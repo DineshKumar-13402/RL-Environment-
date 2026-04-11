@@ -1,0 +1,8 @@
+openenv-core
+pydantic
+openai
+pandas
+numpy
+fastapi
+uvicorn
+requests
