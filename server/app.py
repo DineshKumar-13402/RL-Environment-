@@ -4,8 +4,12 @@ from fastapi import FastAPI, Query
 from fastapi.responses import JSONResponse
 from contextlib import asynccontextmanager
 import uvicorn
-from environment import RestaurantEnv
-from models import Task1Action, Task2Action, Task3Action
+try:
+    from server.environment import RestaurantEnv
+    from models import Task1Action, Task2Action, Task3Action
+except ImportError:
+    from environment import RestaurantEnv
+    from models import Task1Action, Task2Action, Task3Action
 
 envs = {}
 
