@@ -1,1 +1,1 @@
-from app import app, main
+from server.app import app, main
