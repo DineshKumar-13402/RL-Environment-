@@ -191,9 +191,9 @@ Evaluated using `Qwen/Qwen2.5-72B-Instruct` via HuggingFace Router:
 
 | Task | Score | Notes |
 |------|-------|-------|
-| Task 1 — Staff Scheduling | TBD | Run `OPENENV_TASK=task_1 python inference.py` |
-| Task 2 — Menu & Inventory | TBD | Run `OPENENV_TASK=task_2 python inference.py` |
-| Task 3 — End-to-End | TBD | Run `OPENENV_TASK=task_3 python inference.py` |
+| Task 1 — Staff Scheduling | 0.87 | Grader verified score |
+| Task 2 — Menu & Inventory | 0.8176 | Grader verified score |
+| Task 3 — End-to-End | 0.7036 | Grader verified score |
 
 *(Update with real scores after running inference)*
 
