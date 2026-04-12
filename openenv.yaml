@@ -1,16 +1,15 @@
-
 spec_version: 1
 app: app:app
 tasks:
   - id: task_1
-    name: Easy Task
+    name: Staff Scheduling Optimization
     difficulty: easy
-    grader: graders:EasyGrader
+    grader: graders:Task1Grader
   - id: task_2
-    name: Medium Task
+    name: Menu and Inventory Optimization
     difficulty: medium
-    grader: graders:MediumGrader
+    grader: graders:Task2Grader
   - id: task_3
-    name: Hard Task
+    name: End-to-End Restaurant Optimization
     difficulty: hard
-    grader: graders:HardGrader
+    grader: graders:Task3Grader
