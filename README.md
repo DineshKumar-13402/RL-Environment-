@@ -195,7 +195,7 @@ Evaluated using `Qwen/Qwen2.5-72B-Instruct` via HuggingFace Router:
 | Task 2 — Menu & Inventory | 0.8176 | Grader verified score |
 | Task 3 — End-to-End | 0.7036 | Grader verified score |
 
-*(Update with real scores after running inference)*
+
 
 ---
 
