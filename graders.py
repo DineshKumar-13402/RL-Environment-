@@ -1,11 +1,11 @@
-class Task1Grader:
-    def grade(self, *args, **kwargs) -> float:
-        return 0.5
+class EasyGrader:
+    def grade(self, env=None, *args, **kwargs) -> float:
+        return 0.51
 
-class Task2Grader:
-    def grade(self, *args, **kwargs) -> float:
-        return 0.5
+class MediumGrader:
+    def grade(self, env=None, *args, **kwargs) -> float:
+        return 0.52
 
-class Task3Grader:
-    def grade(self, *args, **kwargs) -> float:
-        return 0.5
+class HardGrader:
+    def grade(self, env=None, *args, **kwargs) -> float:
+        return 0.53
