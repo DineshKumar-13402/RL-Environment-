@@ -1,33 +1,16 @@
-spec_version: 1
-name: restaurant-openenv-final
-type: environment
-runtime: docker
-app: app:app
-port: 7860
-description: "A restaurant management OpenEnv simulating Andhra/Telangana cuisine."
-tags: [openenv, reinforcement-learning, restaurant]
 
+spec_version: 1
+app: app:app
 tasks:
   - id: task_1
-    name: "Staff Scheduling Optimization"
-    description: "Task 1 (Easy): Staff Scheduling Optimization."
-    observation_model: "models:Task1Observation"
-    action_model: "models:Task1Action"
-    reward_model: "models:Task1Reward"
-    grader: "graders:Task1Grader"
-
+    name: Easy Task
+    difficulty: easy
+    grader: graders:EasyGrader
   - id: task_2
-    name: "Menu and Inventory Optimization"
-    description: "Task 2 (Medium): Menu and Inventory Optimization."
-    observation_model: "models:Task2Observation"
-    action_model: "models:Task2Action"
-    reward_model: "models:Task2Reward"
-    grader: "graders:Task2Grader"
-
+    name: Medium Task
+    difficulty: medium
+    grader: graders:MediumGrader
   - id: task_3
-    name: "End-to-End Restaurant Optimization"
-    description: "Task 3 (Hard): End-to-End Restaurant Optimization."
-    observation_model: "models:Task3Observation"
-    action_model: "models:Task3Action"
-    reward_model: "models:Task3Reward"
-    grader: "graders:Task3Grader"
+    name: Hard Task
+    difficulty: hard
+    grader: graders:HardGrader
