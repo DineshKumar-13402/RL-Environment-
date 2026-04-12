@@ -2,14 +2,14 @@ spec_version: 1
 app: app:app
 tasks:
   - id: task_1
-    name: Task 1
+    name: Easy Task
     difficulty: easy
-    grader: graders:Task1Grader
+    grader: graders:EasyGrader
   - id: task_2
-    name: Task 2
+    name: Medium Task
     difficulty: medium
-    grader: graders:Task2Grader
+    grader: graders:MediumGrader
   - id: task_3
-    name: Task 3
+    name: Hard Task
     difficulty: hard
-    grader: graders:Task3Grader
+    grader: graders:HardGrader
