@@ -6,6 +6,8 @@ COPY . /app
 
 RUN pip install --no-cache-dir openenv-core pydantic openai pandas numpy fastapi uvicorn requests
 
+ENV PYTHONPATH=/app
+
 EXPOSE 7860
 
 # HF Spaces typically expects port 7860.
